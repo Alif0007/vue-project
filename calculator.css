@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.input{
+    background-color: aliceblue;
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+   
+}
+
+.btn-grp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.btn{
+    padding: 15px 40px;
+    font-size: 2rem;
+    margin: 8px;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="ToDo.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- {{ message }} -->
+        <div class="header">
+            ToDo App
+        </div>
+        <div>
+            <div><p class="title">Title</p>
+                <p class="title1">Description</p></div>
+            <input class="input" type="text"  v-model="title" placeholder="what is task title?">
+            <input class="input" type="text"  v-model="description"placeholder="what is task description?">
+            <button @click="AddToDo" class="btn">ADD</button>
+        </div>
+        <div>
+            <button @click="tab1" class="btn-1">ToDo</button>
+            <button @click="tab2" class="btn-1">Completed</button>
+        </div>
+        <div>
+            <div  v-if="isTab1" class="todo-list">
+                <ul >
+                    <li class="list" v-for="(items, index) in inCompleted"> 
+                    <div class="flex">
+                        <div>
+                            <span class="title-list">Todo : {{items.title}}</span>
+                            <span class="description-list">Description: {{items.description}}</span>
+                        </div>
+                            <div>
+                                <button @click="updatedToDos(index)" class="btn-2">Done</button>
+                            </div>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+            <div v-else class="completed-list"> 
+                <ul >
+                    <li class="list" v-for="(items, index) in completed"> 
+                    <div class="flex">
+                        <div>
+                            <span class="title-list">Todo : {{items.title}}</span>
+                            <span class="description-list">Description: {{items.description}}</span>
+                        </div>
+                            <div>
+                                <button @click="updatedToDos(index)" class="btn-2">Done</button>
+                            </div>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+      </div>
+
+      <script>
+        var app = new Vue({
+        el: '#app',
+        data: {
+            ToDos: [],
+            title: "",
+            description: "",
+            isComplete: false,
+            isTab1: true,
+        },
+        methods: {
+            AddToDo()  { 
+                const todo = {
+                    title: this.title,
+                    description: this.description,
+                    isComplete: this.isComplete,
+                }
+                this.title = null;
+                this.description = null;
+                if(this.title !== ""  && this.description !== "" ){
+                    this.ToDos.push(todo)
+                }
+            },
+            updatedToDos(index) {
+                this.inCompleted[index].isComplete = true;
+            },
+            tab1(){
+                this.isTab1 = true;
+            },
+            tab2(){
+                this.isTab1 = false;
+            }
+
+        },
+        computed: {
+            completed() {
+                 return this.ToDos.filter(item => { 
+                    if(item.isComplete == true) {
+                       return item
+                    }
+                 })
+               },
+            inCompleted() {
+                 return this.ToDos.filter(item => { 
+                    if(item.isComplete == false) {
+                       return item
+                    }
+                 })
+               },
+
+
+        }
+        })
+      </script>
+    
+</body>
+</html>

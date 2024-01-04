@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+      <!-- template  -->
+        <div class="count">{{count}}</div>
+        {{message}}
+      <!-- template end -->
+      <div class="mylist">
+        incomplete
+        <ul>
+            <li v-for="item in incompleted  ">{{item.title}}</li>
+        </ul>
+      </div>
+      <div class="mylist">
+        completed
+        <ul>
+            <li v-for="item in completed">{{item.title}}</li>
+        </ul>
+      </div>
+      <div class="condition">
+        <div v-if="isVue">I am Vue</div>
+        <div v-else>I am React</div>
+    </div>
+    <button v-on:click="increase">click me</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+               message: 'Hello Vue!',
+               peoples: [ 
+                "Naim Vai",
+                "Alif",
+                "Fahim",
+                "Shuvo"
+               ],
+               todos: [
+                 {title: "first todo", details: "First todo details", isComplete: true},
+                 {title: "second todo", details: "First todo details", isComplete: true},
+                 {title: "third todo", details: "third todo details", isComplete: false},
+                 {title: "forth todo", details: "forth todo details", isComplete: true},
+                 {title: "fifth todo", details: "fifth todo details", isComplete: false},
+               ],
+               isVue: false,
+               count: 0
+            },
+            computed: {
+               completed() {
+                 return this.todos.filter(item => { 
+                    if(item.isComplete == true) {
+                       return item
+                    }
+                 })
+               },
+               incompleted() {
+                return this.todos.filter(item => { 
+                    if(item.isComplete == false) {
+                       return item
+                    }
+                 })
+               }
+            },
+            methods: {
+                increase() {
+                    this.count = this.count + 1;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

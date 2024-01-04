@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+  
+    <div id="app">
+    <input type="text" v-model="message">
+    <div class="count">{{count}}</div>
+        {{message}}
+    
+
+    <div class="todos">
+        <ul>
+            Todos
+            <li v-for="works in todos">{{works.tittle}}</li>
+        </ul>
+    </div>
+    <div class="Completed">
+        <ul>
+            Completed tasks
+            <li v-for="works in completed">{{works.tittle}}</li>
+        </ul>
+    </div>
+    <div class="Incompleted">
+        <ul>
+            Incompleted Tasks
+            <li v-for="works in inCompleted">{{works.tittle}}</li>
+        </ul>
+    </div>
+    <div>
+        <button v-on:click="increase">Increase</button>
+        <button v-on:click="decrease">Decrease</button>
+
+    </div>
+</div>
+  <script>
+        var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue!',
+                    todos: [
+                        {tittle:'First Work', Description: 'kjsadkjsahdkjh', isComplete: false},
+                        {tittle:'Second Work', Description: 'kjsadkjsahdkjh', isComplete: true},
+                        {tittle:'Third Work', Description: 'kjsadkjsahdkjh' ,isComplete: false},
+                        {tittle:'Forth Work', Description: 'kjsadkjsahdkjh', isComplete: true},
+                        {tittle:'Fifth Work', Description: 'kjsadkjsahdkjh', isComplete: false}
+                    ],
+                    count: 0
+                },
+               
+                computed: {
+                    completed(){
+                        return this.todos.filter(work => 
+                        {
+                            if(work.isComplete==true) return work
+                        })
+                    },
+                    inCompleted(){
+                        return this.todos.filter(work => 
+                        {
+                            if(work.isComplete==false) return work
+                        })
+                    }
+                },
+
+                methods:  {
+                    increase(){
+                        this.count=this.count+1;
+                    },
+                    decrease(){
+                        if (this.count === 0) return
+                        this.count -= 1
+                        // this.count=this.count-1;
+                       
+                    }
+
+                }
+            })
+  </script>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="calculator.css">
+
+    <title>Calculator</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <div>
+        <input class="input" type="number" v-model="number_1">
+        <input class="input" type="number" v-model="number_2">
+        </div>
+
+        <div class="btn-grp">
+        <button class="btn" @click="add"> + </button>
+        <button class="btn" @click="sub" > - </button>
+        <button class="btn" @click="multiplied" > * </button>
+        <button class="btn" @click="divide" > / </button>
+        <button class="btn"@click="remainder" > % </button>
+        </div>
+        <!-- <p>Output is {{parseInt(number_1) + parseInt(number_2)}}</p> -->
+        <p>Result{{output}}</p>
+        
+    </div>
+
+
+    <script>
+        var app = new Vue({
+        el: '#app',
+        data: {
+           
+            number_1: null,
+            number_2: null,
+            output: null,
+            // result: output.toFixed(2)
+        },
+        methods: {
+            add() {
+              this.output =  parseFloat(this.number_1) + parseFloat(this.number_2)
+              this.output=this.output.toFixed(2)
+              
+              console.log('fff',this.output)
+
+            },
+            sub() {
+              this.output =  this.number_1 - this.number_2
+            },
+            divide() {
+              this.output =  this.number_1 / this.number_2
+            },
+            multiplied() {
+              this.output =  this.number_1 * this.number_2
+            },
+            remainder() {
+              this.output =  this.number_1 % this.number_2
+            }
+        }
+        
+        })
+    </script>
+    
+</body>
+</html>
