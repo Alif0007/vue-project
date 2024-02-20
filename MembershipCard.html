@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Membership Card</title>
+
+    <style>
+        p,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-div {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .card-div-top {
+
+            position: relative;
+        }
+
+        .gradient-div {
+            background: rgb(41, 6, 242);
+            background: linear-gradient(180deg, rgba(41, 6, 242, 1) 30%, rgba(183, 0, 255, 1) 100%);
+            width: 100%;
+            height: 120px;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        .info-div {
+            text-align: center;
+            font-family: "Roboto", sans-serif;
+            background-color: #f4f4f4;
+            border-radius: 0px 0px 10px 10px;
+
+        }
+
+        .info-div h3 {
+            font-size: 20px;
+            font-weight: 600;
+            padding-top: 100px;
+            padding-bottom: 15px;
+        }
+
+        .avatar-div {
+            position: absolute;
+            top: 8%;
+            left: 28%;
+        }
+
+        .avatar-div img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .memb-div {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            color: #4C1783;
+            padding-top: 70px;
+            padding-bottom: 20px;
+
+        }
+
+        .memb-div p {
+            border: 1px solid #4C1783;
+            padding: 4px 10px;
+            border-radius: 5px;
+        }
+
+        .plan-div {
+            display: flex;
+            gap: 10px;
+            padding-top: 8px;
+
+        }
+
+        .gold-div {
+            font-family: "Roboto", sans-serif;
+            width: 100%;
+            text-align: center;
+            background-color: blue;
+            color: white;
+            padding-bottom: 8px;
+            border-radius: 5px;
+        }
+
+        .gold-div h4 {
+            padding-top: 5px;
+            padding-bottom: 8px;
+        }
+
+        .gold-div h3 {
+            font-size: 40px;
+        }
+
+        .gold-div p {
+            font-size: 11px;
+            padding-bottom: 12px;
+        }
+
+        .gold-div div {
+            padding: 2px 10px;
+            display: inline;
+            color: black;
+            background-color: white;
+            border-radius: 7px;
+            font-size: 13px;
+        }
+
+        .non-active {
+            background-color: #f4f4f4;
+            color: black;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <main class="card-div">
+        <div class="card-div-top">
+            <div class="gradient-div">
+
+            </div>
+            <div class="info-div">
+                <h3>Shahin Alam</h3>
+                <p>encountershuvo@gmail.com</p>
+                <p>01307692679</p>
+                <p>Sector 9, Uttara, Dhaka</p>
+                <div class="memb-div">
+                    <h4>Membership Plan :</h4>
+                    <p>Gold</p>
+                </div>
+            </div>
+            <div class="avatar-div">
+                <img src="https://s3-alpha-sig.figma.com/img/605d/feba/d3d03da562d543b623295f27f510eac8?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JjycYmQdKRg2xuGIuk-UTUgvk0UdWTq7zKhw-~82B7p9Q3DeXKZEhJGnbTI25jngfQulyiZOF6jTcXBuAfJS9QP1R2SBWiIlhDFHVk9Fn4oh67TEMUDZ09nya4uqlCaTo66CGK4p2ytNdnRrfvwsC30JNYAAuuDaKuGoPCyKiT6YDMJXeMHaRUnQ~yyPXCcGtXpsJ9l3goQK94YKUXUlg-msJPDMnhyEYgAIFcNz0kv7o4h-HF62gfVTkgpCHmlAi9hXfQzXcbPZXrCtBWR6bf-j7quHxyyIb1N1sI59ddC2MB5m8rViOwMJIpF-HGnvMHNR8nib5b~f2RObIUDLNQ__"
+                    alt="">
+            </div>
+            <div class="plan-div">
+                <div class="gold-div">
+                    <h4>Gold</h4>
+                    <h3>$5</h3>
+                    <p>Monthly</p>
+                    <div>Pay Now</div>
+                </div>
+                <div class="gold-div non-active">
+                    <h4>Gold</h4>
+                    <h3>$5</h3>
+                    <p>Monthly</p>
+                    <div>Pay Now</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+
+</body>
+
+</html>
